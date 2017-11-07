@@ -27,13 +27,7 @@
                 </div>
                 <!-- 分页 -->
                 <ul class="pagination pull-right">
-                    <li><a href="#">上一页</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">下一页</a></li>
+                   
                 </ul>
             </div>
         </div>
@@ -60,6 +54,21 @@
             </div>
         </div>
         {{/each}}
+    </script>
+    <script type='text/template' id='page'>
+        <% if(page>1) { %>
+        <li><a href="?page=<%= page-1 %>">上一页</a></li>
+        <% } %>
+
+        <% for(var i=1;i<=pageLen;i++) { %> 
+            <!-- 必须将if放在li里面，否则模板会解析if的{    -->
+        <li <% if (i==page) { %> class="active" <% } %> ><a href="?page=<%= i %>"><%= i %></a></li>     
+        <% } %>
+
+        <% if(page<pageLen) { %>
+            <!-- 如果不-0，就会出现字符串拼接 -->
+        <li><a href="?page=<%= page-0+1 %>">下一页</a></li>
+        <% } %>
     </script>
     <?php include './common/script.html' ?>
     <script>
