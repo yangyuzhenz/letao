@@ -1,4 +1,4 @@
-define(['jquery','template'], function ($, template) {
+define(['jquery','template','./utils'], function ($, template) {
   
   var size=2;
   // var page=1;
