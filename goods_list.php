@@ -24,82 +24,6 @@
                     <a href="./goods_add.html" class="btn btn-success btn-sm pull-right">添加商品</a>
                 </div>
                 <div class="goods">
-                    <div class="item">
-                        <div class="pic">
-                            <img src="./uploads/course_1.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <a href="javascript:;">匡威三星标1970s converse复刻 142334c 144757c三星标黑色高帮</a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span>商品原价：888.1</span>
-                                </li>
-                                <li>
-                                    <span>优惠价：499.1</span>
-                                </li>
-                                <li>
-                                    <span>商品库存：32</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="pic">
-                            <img src="./uploads/course_2.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <a href="javascript:;">李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span>商品原价：888.1</span>
-                                </li>
-                                <li>
-                                    <span>优惠价：499.1</span>
-                                </li>
-                                <li>
-                                    <span>商品库存：32</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="pic">
-                            <img src="./uploads/course_3.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <a href="javascript:;">Sport飓风 Nike Kwazi 休闲运动鞋男 844839-002-001-100-400</a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span>商品原价：888.1</span>
-                                </li>
-                                <li>
-                                    <span>优惠价：499.1</span>
-                                </li>
-                                <li>
-                                    <span>商品库存：32</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="pic">
-                            <img src="./uploads/course_4.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <a href="javascript:;">指南针运动 NIKE HYPERSHIFT篮球鞋 844392-010-607-164-017现货</a>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <span>商品原价：888.1</span>
-                                </li>
-                                <li>
-                                    <span>优惠价：499.1</span>
-                                </li>
-                                <li>
-                                    <span>商品库存：32</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <!-- 分页 -->
                 <ul class="pagination pull-right">
@@ -114,10 +38,32 @@
             </div>
         </div>
     </div>
-
+    <script type='text/template' id="tpl">
+        {{each rows}}
+        <div class="item">
+            <div class="pic">
+                <img src="./uploads/course_1.jpg" alt="">
+            </div>
+            <div class="info">
+                <a href="javascript:;">{{$value.proName}}</a>
+                <ul class="list-unstyled">
+                    <li>
+                        <span>商品原价：{{$value.oldPrice}}</span>
+                    </li>
+                    <li>
+                        <span>优惠价：{{$value.price}}</span>
+                    </li>
+                    <li>
+                        <span>商品库存：{{$value.num}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{/each}}
+    </script>
     <?php include './common/script.html' ?>
     <script>
-        require([' src/goodslist']);
+        require(['src/goodslist']);
     </script>
    
 </body>
